@@ -28,9 +28,9 @@ class Bot():
         time.sleep(2)
         self.driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]/button/div').click()
         time.sleep(3)
-        self.driver.find_element_by_xpath("//button[contains(text(),'Not Now')]").click() #clicking Not Now btn
+        self.driver.find_element_by_xpath("//button[contains(text(),'Not Now')]").click() #This helps to remove the notnow botton
         time.sleep(2)
-        self.driver.find_element_by_xpath("//button[contains(text(),'Not Now')]").click() #clicking Not Now btn
+        self.driver.find_element_by_xpath("//button[contains(text(),'Not Now')]").click() #This helps to remove the notnow botton
     
     def like_comment_by_hashtag(self, hashtag):
         self.driver.get('https://www.instagram.com/explore/tags/{}/'.format(hashtag))
@@ -55,7 +55,7 @@ class Bot():
             # comment
             self.driver.find_element_by_class_name('RxpZH').click() 
             sleep(1)
-            self.driver.find_element_by_xpath("//textarea[@placeholder='Add a comment…']").send_keys(self.comments[randint(0,1)])
+            self.driver.find_element_by_xpath("//textarea[@placeholder='Add a comment…']").send_keys(self.comments[randint(0,2)])
             sleep(1)
             self.driver.find_element_by_xpath("//button[@type='submit']").click()
 def main():
