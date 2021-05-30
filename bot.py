@@ -10,14 +10,14 @@ class Bot():
     links = []
 
     comments = [
-        'Great post', 'Awesome!'
+        'Great post', 'Awesome!', 'Great Work'
     ]
     def __init__(self):
-        self.login('coderflare',pw)
-        self.like_comment_by_hashtag('programming')
+        self.login('your username',pw)
+        self.like_comment_by_hashtag('programming','coding')
     
     def login(self, username, password):
-        self.driver = webdriver.Chrome('/home/sujan/Desktop/lockdown/newinstabot_env/chromedriver')
+        self.driver = webdriver.Chrome('paste the driver path here')
         self.driver.get('https://instagram.com/')
         time.sleep(3)
         username_input = self.driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[1]/div/label/input')
@@ -61,7 +61,7 @@ class Bot():
 def main():
     while True:
         my_bot = Bot()
-        sleep(60*60) #one hour
+        sleep(60) #prgramme runs after a minute  
 
 if __name__ == '__main__':
     main()
