@@ -13,8 +13,12 @@ class Bot():
         'Great post', 'Awesome!', 'Great Work'
     ]
     def __init__(self):
+        # mention your username here , you can mention your password here as well but its better to create an extra python file to store the password.
+        # and import that password 
         self.login('your username',pw)
         self.like_comment_by_hashtag('programming','coding')
+    
+    # this is a function where the selenium gets login 
     
     def login(self, username, password):
         self.driver = webdriver.Chrome('paste the driver path here')
@@ -32,10 +36,14 @@ class Bot():
         time.sleep(2)
         self.driver.find_element_by_xpath("//button[contains(text(),'Not Now')]").click() #This helps to remove the notnow botton
     
+    # this is a function where the program search the content or post through #tags 
+    
     def like_comment_by_hashtag(self, hashtag):
         self.driver.get('https://www.instagram.com/explore/tags/{}/'.format(hashtag))
         links = self.driver.find_elements_by_tag_name('a')
-
+    
+    #filters the link of the post or content
+    
         def condition(link):
             return '.com/p/' in link.get_attribute('href')
         valid_links = list(filter(condition, links))
@@ -52,7 +60,8 @@ class Bot():
             self.driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[1]/span[1]/button').click()
             sleep(5)
 
-            # comment
+            # does the comment on the post by it self choosing it from above
+            
             self.driver.find_element_by_class_name('RxpZH').click() 
             sleep(1)
             self.driver.find_element_by_xpath("//textarea[@placeholder='Add a comment…']").send_keys(self.comments[randint(0,2)])
